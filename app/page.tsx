@@ -392,7 +392,8 @@ function RageCard({ emoji, label, desc, onClick }: {
 }
 
 /* ─── KeyboardSmash ──────────────────────────────────────────── */
-function KeyboardSmash({ t }: { t: typeof T["en"] }) {
+type Translations = typeof T[keyof typeof T];
+function KeyboardSmash({ t }: { t: Translations }) {
   const [pressed, setPressed]     = useState<Record<string, boolean>>({});
   const [totalSmashes, setTotal]  = useState(0);
   const [particles, setParticles] = useState<{ id: number; x: number; y: number; char: string }[]>([]);
@@ -493,7 +494,7 @@ function KeyboardSmash({ t }: { t: typeof T["en"] }) {
 }
 
 /* ─── PunchBag ───────────────────────────────────────────────── */
-function PunchBag({ t }: { t: typeof T["en"] }) {
+function PunchBag({ t }: { t: Translations }) {
   const [swingDir, setSwingDir]   = useState(0);
   const [punches, setPunches]     = useState(0);
   const [impacts, setImpacts]     = useState<{ id: number; x: number; y: number }[]>([]);
@@ -627,7 +628,7 @@ const CRACK_PATHS = [
   ["M 100 80 L 120 120 L 95 150", "M 80 100 L 60 140 L 85 170", "M 110 170 L 140 200 L 120 230", "M 50 150 L 90 200 L 70 240", "M 130 90 L 110 130 L 140 160"],
 ];
 
-function BrickBreaker({ t }: { t: typeof T["en"] }) {
+function BrickBreaker({ t }: { t: Translations }) {
   const [cracks, setCracks]       = useState(0);
   const [shaking, setShaking]     = useState(false);
   const [exploded, setExploded]   = useState(false);
